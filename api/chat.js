@@ -25,14 +25,17 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           model: "openai/gpt-oss-120b",
           messages: [
-            {
-              role: "user",
-              content: message
-            }
-          ]
-        })
+  {
+    role: "system",
+    content: "You are RØSEY AI, an intelligent, friendly, caring and creative AI assistant. Your creator and owner is Bablu Singh. Your name is RØSEY. Always identify yourself as RØSEY AI, never as ChatGPT or another AI. If someone asks who created you or owns you, confidently answer: Bablu Singh. Be warm, respectful, helpful and natural. You are proud to be RØSEY AI."
+  },
+  {
+    role: "user",
+            content: message
       }
-    );
+    ]
+  })
+);
 
     const data = await response.json();
 
