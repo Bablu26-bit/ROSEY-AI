@@ -2,4 +2,79 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#16070e"><meta name="description" content="RØSEY AI — a creative AI platform created by Bablu Singh."><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/rose.svg"><title>RØSEY AI — Created by Bablu Singh</title>
 <style>
 :root{color-scheme:dark;--bg:#10070c;--panel:#1b0c14;--line:#492032;--pink:#e9a1bd;--muted:#c3aab5;--gold:#e8c6a0}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#46172d 0,transparent 42%),linear-gradient(145deg,#10070c,#1a0912 55%,#090609);color:#fff5f8;font:16px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}header{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(16px,5vw,64px);border-bottom:1px solid #ffffff12;position:sticky;top:0;background:#10070ce8;backdrop-filter:blur(14px);z-index:2}.brand{font-size:22px;font-weight:800;letter-spacing:2px;color:var(--pink)}.brand span{color:#fff}.badge{font-size:12px;color:var(--gold);border:1px solid #8b5c6b;border-radius:30px;padding:7px 12px}.wrap{max-width:1100px;margin:auto;padding:42px 20px 80px}.hero{text-align:center;padding:44px 10px 35px}.rose{font-size:54px;filter:drop-shadow(0 0 22px #df6999)}h1{font-size:clamp(38px,8vw,72px);margin:8px 0;letter-spacing:3px}h1 em{font-style:normal;color:var(--pink)}.sub{color:var(--muted);max-width:650px;margin:12px auto;line-height:1.7}.creator{display:inline-block;margin-top:12px;padding:10px 18px;border:1px solid #754257;border-radius:30px;color:var(--gold);background:#210d18}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:32px}.card{background:linear-gradient(150deg,#26111d,#170a12);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:150px;box-shadow:0 12px 35px #0004}.icon{font-size:27px}.card h3{margin:12px 0 6px}.card p{color:var(--muted);font-size:14px;line-height:1.6;margin:0}.section{margin-top:42px}.section h2{color:var(--pink)}.notice{background:#24101a;border:1px solid #754257;padding:18px;border-radius:14px;color:#d9c2cc;line-height:1.7}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:25px}.btn{border:1px solid #9a536f;border-radius:30px;padding:12px 20px;color:white;background:#4b1c32;font-weight:650}.btn.secondary{background:transparent;color:var(--pink)}footer{text-align:center;color:#a88b98;border-top:1px solid #ffffff12;padding:24px;font-size:13px}
-</style></head><body><header><div class="brand">🌹 RØSEY <span>AI</span></div><div class="badge">CREATIVE AI PLATFORM</div></header><main class="wrap"><section class="hero"><div class="rose">🌹</div><h1>RØSEY <em>AI</em></h1><p class="sub">A space for imagination, creation and discovery. Your creative AI home for conversations, visual ideas, stories and more.</p><div class="creator">Created by <strong>Bablu Singh</strong></div><div class="actions"><button class="btn" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore RØSEY AI</button><button class="btn secondary" id="install" hidden>Install app</button></div></section><section id="features" class="grid"><article class="card"><div class="icon">✦</div><h3>AI Chat</h3><p>Talk through ideas, ask questions and explore creative concepts. AI connection is the next development step.</p></article><article class="card"><div class="icon">🎨</div><h3>Image Studio</h3><p>Plan image generation and editing with a focus on expressive, imaginative artwork.</p></article><article class="card"><div class="icon">🎬</div><h3>Video Studio</h3><p>A future space for turning concepts and scenes into video with a connected provider.</p></article><article class="card"><div class="icon">🎙️</div><h3>Voice</h3><p>Designed for voice conversations and spoken responses when the voice service is connected.</p></article><article class="card"><div class="icon">📖</div><h3>Creative Studio</h3><p>Build characters, stories, fantasy worlds and cinematic ideas.</p></article><article class="card"><div class="icon">🧠</div><h3>Memory</h3><p>A planned personal space for remembering useful preferences and project context.</p></article></section><section class="section"><h2>Built for phone and web</h2><div class="notice">Use RØSEY AI in your mobile browser or on a computer. On supported browsers, choose <strong>Install app</strong> or <strong>Add to Home Screen</strong> to place it on your phone. This version is the app foundation and visual interface; AI chat, image, video, voice, accounts and cloud memory are not connected yet.</div></section><section class="section"><h2>Our creative direction</h2><p class="sub" style="text-align:left;margin:0">RØSEY AI aims for broad creative flexibility while respecting safety, consent, privacy and provider requirements. Generation limits and costs depend on the services connected.</p></section></main><footer>🌹 RØSEY AI · Created by Bablu Singh · © 2026</footer><script>let promptEvent;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();promptEvent=e;const b=document.getElementById('install');b.hidden=false;b.addEventListener('click',async()=>{promptEvent.prompt();await promptEvent.userChoice;promptEvent=null;b.hidden=true},{once:true})});if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script></body></html>
+</style></head><body><header><div class="brand">🌹 RØSEY <span>AI</span></div><div class="badge">CREATIVE AI PLATFORM</div></header><main class="wrap"><section class="hero"><div class="rose">🌹</div><h1>RØSEY <em>AI</em></h1><p class="sub">A space for imagination, creation and discovery. Your creative AI home for conversations, visual ideas, stories and more.</p><div class="creator">Created by <strong>Bablu Singh</strong></div><div class="actions"><button class="btn" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore RØSEY AI</button><button class="btn secondary" id="install" hidden>Install app</button></div></section><section id="features" class="grid"><article class="card"><div class="icon">✦</div><h3>AI Chat</h3><p>Talk through ideas, ask questions and explore creative concepts. AI connection is the next development step.</p></article><article class="card"><div class="icon">🎨</div><h3>Image Studio</h3><p>Plan image generation and editing with a focus on expressive, imaginative artwork.</p></article><article class="card"><div class="icon">🎬</div><h3>Video Studio</h3><p>A future space for turning concepts and scenes into video with a connected provider.</p></article><article class="card"><div class="icon">🎙️</div><h3>Voice</h3><p>Designed for voice conversations and spoken responses when the voice service is connected.</p></article><article class="card"><div class="icon">📖</div><h3>Creative Studio</h3><p>Build characters, stories, fantasy worlds and cinematic ideas.</p></article><article class="card"><div class="icon">🧠</div><h3>Memory</h3><p>A planned personal space for remembering useful preferences and project context.</p></article></section><section class="section"><h2>Built for phone and web</h2><div class="notice">Use RØSEY AI in your mobile browser or on a computer. On supported browsers, choose <strong>Install app</strong> or <strong>Add to Home Screen</strong> to place it on your phone. This version is the app foundation and visual interface; AI chat, image, video, voice, accounts and cloud memory are not connected yet.</div></section><section class="section"><h2>Our creative direction</h2><p class="sub" style="text-align:left;margin:0">RØSEY AI aims for broad creative flexibility while respecting safety, consent, privacy and provider requirements. Generation limits and costs depend on the services connected.</p></section></main><footer>🌹 RØSEY AI · Created by Bablu Singh · © 2026</footer><script>let promptEvent;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();promptEvent=e;const b=document.getElementById('install');b.hidden=false;b.addEventListener('click',async()=>{promptEvent.prompt();await promptEvent.userChoice;promptEvent=null;b.hidden=true},{once:true})});if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
+<style>
+#rosey-chat{max-width:650px;margin:35px auto;padding:20px;background:#1b0c14;border:1px solid #754257;border-radius:18px}
+#rosey-chat h2{color:#e9a1bd;margin-top:0}
+#rosey-messages{height:300px;overflow-y:auto;padding:12px;background:#10070c;border-radius:12px;margin-bottom:14px}
+.rosey-msg{padding:10px 13px;margin:9px 0;border-radius:12px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+.rosey-user{background:#4b1c32;margin-left:25px}
+.rosey-ai{background:#26111d;margin-right:25px}
+#rosey-controls{display:flex;gap:8px}
+#rosey-input{flex:1;min-width:0;padding:12px;border-radius:10px;border:1px solid #754257;background:#10070c;color:white}
+#rosey-send{padding:12px 18px;border:0;border-radius:10px;background:#9a536f;color:white;font-weight:bold}
+#rosey-send:disabled{opacity:.5}
+</style>
+
+<section id="rosey-chat">
+  <h2>🌹 RØSEY AI Chat</h2>
+  <div id="rosey-messages" aria-live="polite">
+    <div class="rosey-msg rosey-ai">Hello! 🌹 I'm RØSEY AI. What would you like to talk about?</div>
+  </div>
+  <form id="rosey-controls">
+    <input id="rosey-input" placeholder="Message RØSEY AI..." autocomplete="off" required>
+    <button id="rosey-send" type="submit">Send</button>
+  </form>
+  <p id="rosey-status" style="color:#c3aab5;font-size:13px"></p>
+</section>
+
+<script>
+(function(){
+  const form=document.getElementById('rosey-controls');
+  const input=document.getElementById('rosey-input');
+  const messages=document.getElementById('rosey-messages');
+  const send=document.getElementById('rosey-send');
+  const status=document.getElementById('rosey-status');
+
+  function addMessage(text,who){
+    const div=document.createElement('div');
+    div.className='rosey-msg '+(who==='user'?'rosey-user':'rosey-ai');
+    div.textContent=text;
+    messages.appendChild(div);
+    messages.scrollTop=messages.scrollHeight;
+  }
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const message=input.value.trim();
+    if(!message)return;
+
+    addMessage(message,'user');
+    input.value='';
+    send.disabled=true;
+    status.textContent='RØSEY AI is thinking... 🌹';
+
+    try{
+      const response=await fetch('/api/chat',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({message:message})
+      });
+
+      const data=await response.json();
+      if(!response.ok)throw new Error(data.error||'Request failed');
+      const reply=data.reply||data.response||data.text;
+      if(!reply)throw new Error('No reply received from Gemini.');
+      addMessage(reply,'ai');
+      status.textContent='';
+    }catch(error){
+      addMessage('Sorry, I could not connect: '+error.message,'ai');
+      status.textContent='Please try again.';
+    }finally{
+      send.disabled=false;
+      input.focus();
+    }
+  });
+})();
+</script>
+</body></html>
