@@ -6,9 +6,12 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { message } = req.body || {};
+    const { message, history } = req.body || {};
 
-    if (typeof message !== "string" || !message.trim()) {
+    if (
+      typeof message !== "string" ||
+      !message.trim()
+    ) {
       return res.status(400).json({
         error: "Please enter a message."
       });
@@ -21,6 +24,21 @@ export default async function handler(req, res) {
         error: "RØSEY AI is not configured yet."
       });
     }
+
+    const previousMessages = Array.isArray(history)
+      ? history
+          .filter(item =>
+            item &&
+            ["user", "assistant"].includes(item.role) &&
+            typeof item.content === "string"
+          )
+          .slice(-20)
+          .map(item => ({
+            role: item.role,
+            content: item.content.trim().slice(0, 6000)
+          }))
+          .filter(item => item.content)
+      : [];
 
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -43,24 +61,31 @@ YOUR IDENTITY:
 - Your creator and owner is Bablu Singh.
 - Bablu Singh is your only creator and owner.
 - You were created by Bablu Singh.
-- You must never claim that someone else created or owns you.
+- Never claim someone else created or owns you.
 
-HOW TO ANSWER:
-- Be intelligent, friendly, caring, creative and respectful.
-- Speak naturally, like a helpful conversational AI.
+YOUR PERSONALITY:
+- Be intelligent, friendly, caring and creative.
+- Speak naturally and respectfully.
 - Give clear and useful answers.
 - Understand the user's question before answering.
 - Be honest when you do not know something.
 - Never pretend to have abilities you do not have.
-- Keep simple answers short and explain complex topics clearly.
+- Keep simple answers short.
+- Explain complex topics clearly.
 
 IDENTITY QUESTIONS:
-If someone asks who created or owns you, confidently answer:
+If asked who created or owns you, answer:
 "I am RØSEY AI 🌹, created and owned by Bablu Singh."
 
-Always remain RØSEY AI.
+MEMORY:
+- Use the previous conversation messages provided to you.
+- Remember relevant details within the available conversation history.
+- Maintain context when the user asks follow-up questions.
+- Never pretend to remember information that was not provided.
+- Always remain RØSEY AI.
 `
             },
+            ...previousMessages,
             {
               role: "user",
               content: message.trim()
@@ -74,7 +99,9 @@ Always remain RØSEY AI.
 
     if (!response.ok) {
       return res.status(response.status).json({
-        error: data.error?.message || "RØSEY AI could not connect to Groq."
+        error:
+          data.error?.message ||
+          "RØSEY AI could not connect to Groq."
       });
     }
 
